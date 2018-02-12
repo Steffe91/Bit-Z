@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class CameraController : MonoBehaviour {
 
@@ -17,6 +18,11 @@ public class CameraController : MonoBehaviour {
 
     private float offset;
 
+
+	// tweak camera
+	public CameraState CameraState;
+
+
     // Use this for initialization
     void Awake ()
     {
@@ -24,9 +30,36 @@ public class CameraController : MonoBehaviour {
         InvokeRepeating("SpawnEnemy", spawnTime, spawnTime);
         //offset = transform.position - Player.transform.position;
     }
+
+	void Start() {
+		CameraState = CameraState.Stationary;
+	}
+
+	void LateUpdate()
+	{
+		float offset = Camera.main.orthographicSize * Camera.main.aspect / 2;
+		Vector3 CheeseScreenPosition = Camera.main.WorldToViewportPoint(Player.transform.position);
+
+		if (CheeseScreenPosition.x < 0.25f || CheeseScreenPosition.x > 0.75f)
+			CameraState = CameraState.Following;
+
+		if (CameraState == CameraState.Following && PlayerState.Instance.Horizontal == Horizontal.Idle)
+			CameraState = CameraState.Recentering;
+		else if (CameraState == CameraState.Following)
+			transform.position = new Vector3(Player.transform.position.x - offset * (int)PlayerState.Instance.DirectionFacing, transform.position.y, transform.position.z);
+
+		if (CameraState == CameraState.Recentering)
+		{
+			float x = Mathf.Lerp(transform.position.x, Player.transform.position.x, 0.02f * Time.deltaTime * 60);
+			transform.position = new Vector3(x, transform.position.y, transform.position.z);
+
+			if (Math.Round(CheeseScreenPosition.x, 1) == 0.5f)
+				CameraState = CameraState.Stationary;
+		}
+	}
 	
 	// Update is called once per frame
-	void Update ()
+	/*void Update ()
     {
 
         offset = GetComponent<Camera>().transform.position.x - Player.transform.position.x;
@@ -67,11 +100,11 @@ public class CameraController : MonoBehaviour {
             //Debug.Log("minCamera: " + minCameraPos.x);
         }
 
-    }
+    } */
 
     void SpawnEnemy()
     {
-        Instantiate(Enemy, new Vector3(Random.Range(transform.position.x + offset, maxCameraPos.x), 0, 0),
+        Instantiate(Enemy, new Vector3(UnityEngine.Random.Range(transform.position.x + offset, maxCameraPos.x), 0, 0),
                                        Quaternion.identity);
         //Physics2D.IgnoreCollision(GetComponent<Camera>().GetComponent<BoxCollider2D>(), Enemy.GetComponent<Collider2D>(), true);
 
@@ -87,4 +120,10 @@ public class CameraController : MonoBehaviour {
             //Physics2D.IgnoreCollision(GetComponent<Camera>().GetComponent<Collider2D>(), Enemy.GetComponent<Collider2D>(), true);
         }
     }
+}
+
+public enum CameraState {
+	Stationary,
+	Following,
+	Recentering
 }

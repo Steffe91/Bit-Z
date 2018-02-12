@@ -7,12 +7,17 @@ public class PlayerController : MonoBehaviour {
 
     public float maxSpeed = 10f;
     public float jumpForce = 10f;
-    public Rigidbody2D rig_bod;
+    public Rigidbody2D PlayerBody;
     public LayerMask ground;
     public static int dirFacing = 2;
     public int Health;
     public GameOver gameOver;
     //public Slider Healthbar;
+
+	// tweaking movement
+	float HorizontalMotion;
+	bool JumpActive;
+	public static int MoveSpeed;
 
 
 
@@ -26,7 +31,20 @@ public class PlayerController : MonoBehaviour {
     // Use this for initialization
 	void Start ()
     {
-        rig_bod = GetComponent<Rigidbody2D>();
+
+		// tweak movement
+		HorizontalMotion = 0;
+		MoveSpeed = 10;
+
+		PlayerState.Instance.Horizontal = Horizontal.Idle;
+		PlayerState.Instance.Vertical = Vertical.Airborne;
+		PlayerState.Instance.DirectionFacing = DirectionFacing.Right;
+		PlayerState.Instance.Attack = Attack.Passive;
+
+		// ******
+
+
+        PlayerBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
         _currentHealth = Health;
@@ -42,13 +60,14 @@ public class PlayerController : MonoBehaviour {
     /// </summary>
     void FixedUpdate()
     {
-        
+		Walk();
+		Jump();
 
-        float move = Input.GetAxis("Horizontal");
+      /*  float move = Input.GetAxis("Horizontal");
 
         anim.SetFloat("Speed", Mathf.Abs(move));
 
-        rig_bod.velocity = new Vector2(move * maxSpeed, rig_bod.velocity.y);
+        PlayerBody.velocity = new Vector2(move * maxSpeed, PlayerBody.velocity.y);
 
         if (move > 0 && !facingRight)
         {
@@ -64,7 +83,7 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetKeyDown("w"))
         {        
             Jump();     
-        }
+        } */
 
         if (_currentHealth <= 0)
         {
@@ -75,8 +94,59 @@ public class PlayerController : MonoBehaviour {
         Debug.Log("Health: " + _currentHealth);
         //Debug.Log("Healthbar-Health: " + Healthbar.value);
 
+		//Allow player movement only when not attacking
+		if (PlayerState.Instance.Attack != Attack.Passive)
+		{
+			PlayerBody.velocity = new Vector2(0, 0.1f);
+			HorizontalMotion = 0;
+		}
+		else
+		{
+			HorizontalMotion = Input.GetAxisRaw("Horizontal");
+
+			if (HorizontalMotion != 0)
+			{
+				transform.localScale = new Vector3(HorizontalMotion, 1, 1);
+				PlayerState.Instance.DirectionFacing = (DirectionFacing)HorizontalMotion;
+			}
+
+			if (Input.GetButtonDown("Jump"))
+				JumpActive = true;
+		}
+
+		if (PlayerBody.velocity.y == 0 && PlayerState.Instance.Attack == Attack.Passive)
+			PlayerState.Instance.Vertical = Vertical.Grounded;
+
+		Horizontal previousMotion = PlayerState.Instance.Horizontal;
+		Horizontal currentMotion = PlayerState.Instance.Horizontal = (Horizontal)HorizontalMotion;
+
+		//Fixes an error with the camera following the player incorrectly if quickly changing direction while at the furthest possible positions at each side of the screen.
+		if ((int)previousMotion * (int)currentMotion == -1)
+			PlayerState.Instance.Horizontal = Horizontal.Idle;
+
+
     }
 
+	private void Walk()
+	{
+		PlayerBody.velocity = new Vector2(HorizontalMotion * MoveSpeed, PlayerBody.velocity.y);
+	}
+
+	//Handles player's vertical state and allows jumping only when grounded, using physics-based AddForce(), called in FixedUpdate()
+	private void Jump()
+	{
+		if (JumpActive)
+		{
+			if (PlayerState.Instance.Vertical == Vertical.Grounded)
+			{
+				PlayerState.Instance.Vertical = Vertical.Airborne;
+				PlayerBody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+			}
+			JumpActive = false;
+		}
+	}
+
+	/*
     void Flip()
     {
         facingRight = !facingRight;
@@ -109,9 +179,11 @@ public class PlayerController : MonoBehaviour {
         }
         else
         {
-            rig_bod.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            PlayerBody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
         }
     }
+*/
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

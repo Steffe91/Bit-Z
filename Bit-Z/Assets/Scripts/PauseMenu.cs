@@ -10,27 +10,38 @@ public class PauseMenu : MonoBehaviour {
     public bool isPaused;
 
     public GameObject pauseCanvas;
+	private GameObject Player;
 
 	// Use this for initialization
 	
 	// Update is called once per frame
+
+	void Start() {
+		Player = GameObject.FindGameObjectWithTag("Player");
+	}
+
 	void Update ()
     {
+		if(Input.GetKeyDown(KeyCode.Escape))
+		{
+			isPaused = !isPaused;
+		}
+
 		if(isPaused)
         {
             pauseCanvas.SetActive(true);
             Time.timeScale = 0f;
+			//Player.GetComponent<PlayerController> ().enabled = Player.GetComponentInChildren<CameraController> ().enabled = false;
+
         }
         else
         {
             pauseCanvas.SetActive(false);
             Time.timeScale = 1f;
+			//Player.GetComponent<PlayerController> ().enabled = Player.GetComponentInChildren<CameraController> ().enabled = true;	
         }
 
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            isPaused = !isPaused;
-        }
+
 	}
 
     public void Resume()

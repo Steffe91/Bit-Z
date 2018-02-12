@@ -5,8 +5,12 @@ using UnityEngine;
 
 public class GameOver : MonoBehaviour {
 
-    public bool isDead = false;
+    public bool isDead;
     public GameObject gameOverCanvas;
+
+	void Start() {
+		isDead = false;
+	}
 
     void Update()
     {
