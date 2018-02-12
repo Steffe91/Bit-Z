@@ -1,0 +1,63 @@
+C:\Users\CAPTIVA 8\Desktop\Bit-Z Project\Bit-Z\Bit-Z\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
+C:\Users\CAPTIVA 8\Desktop\Bit-Z Project\Bit-Z\Bit-Z\Temp\bin\Debug\Assembly-CSharp.dll
+C:\Users\CAPTIVA 8\Desktop\Bit-Z Project\Bit-Z\Bit-Z\Temp\bin\Debug\Assembly-CSharp.pdb
+C:\Users\CAPTIVA 8\Desktop\Bit-Z Project\Bit-Z\Bit-Z\Temp\bin\Debug\nunit.framework.dll
+C:\Users\CAPTIVA 8\Desktop\Bit-Z Project\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEditor.dll
+C:\Users\CAPTIVA 8\Desktop\Bit-Z Project\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEngine.Analytics.dll
+C:\Users\CAPTIVA 8\Desktop\Bit-Z Project\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEngine.dll
+C:\Users\CAPTIVA 8\Desktop\Bit-Z Project\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEngine.HoloLens.dll
+C:\Users\CAPTIVA 8\Desktop\Bit-Z Project\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEngine.Networking.dll
+C:\Users\CAPTIVA 8\Desktop\Bit-Z Project\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEngine.TestRunner.dll
+C:\Users\CAPTIVA 8\Desktop\Bit-Z Project\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEngine.UI.dll
+C:\Users\CAPTIVA 8\Desktop\Bit-Z Project\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEngine.VR.dll
+C:\Users\CAPTIVA 8\Desktop\Bit-Z Project\Bit-Z\Bit-Z\Temp\bin\Debug\Mono.Cecil.dll
+C:\Users\CAPTIVA 8\Desktop\Bit-Z Project\Bit-Z\Bit-Z\Temp\bin\Debug\Unity.SerializationLogic.dll
+C:\Users\CAPTIVA 8\Desktop\Bit-Z Project\Bit-Z\Bit-Z\Temp\bin\Debug\Unity.DataContract.dll
+C:\Users\CAPTIVA 8\Desktop\Bit-Z Project\Bit-Z\Bit-Z\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+C:\Users\CAPTIVA 8\Desktop\Bit-Z Project\Bit-Z\Bit-Z\Temp\bin\Debug\Unity.UNetWeaver.dll
+C:\Users\CAPTIVA 8\Desktop\Bit-Z Project\Bit-Z\Bit-Z\Temp\bin\Debug\Unity.CecilTools.dll
+C:\Users\CAPTIVA 8\Desktop\Bit-Z Project\Bit-Z\Bit-Z\Temp\bin\Debug\Mono.Cecil.Pdb.dll
+C:\Users\CAPTIVA 8\Desktop\Bit-Z Project\Bit-Z\Bit-Z\Temp\bin\Debug\Mono.Cecil.Mdb.dll
+C:\Users\CAPTIVA 8\Desktop\Bit-Z Project\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEngine.xml
+C:\Users\CAPTIVA 8\Desktop\Bit-Z Project\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEditor.xml
+C:\Users\CAPTIVA 8\Desktop\Bit-Z Project\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEngine.UI.xml
+C:\Users\CAPTIVA 8\Desktop\Bit-Z Project\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEngine.Networking.xml
+C:\Users\CAPTIVA 8\Desktop\Bit-Z Project\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEngine.TestRunner.xml
+C:\Users\CAPTIVA 8\Desktop\Bit-Z Project\Bit-Z\Bit-Z\Temp\bin\Debug\nunit.framework.xml
+C:\Users\CAPTIVA 8\Desktop\Bit-Z Project\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEngine.Analytics.xml
+C:\Users\CAPTIVA 8\Desktop\Bit-Z Project\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEngine.HoloLens.xml
+C:\Users\CAPTIVA 8\Desktop\Bit-Z Project\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEngine.VR.xml
+C:\Users\CAPTIVA 8\Desktop\Bit-Z Project\Bit-Z\Bit-Z\obj\Debug\Assembly-CSharp.dll
+C:\Users\CAPTIVA 8\Desktop\Bit-Z Project\Bit-Z\Bit-Z\obj\Debug\Assembly-CSharp.pdb
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\Temp\bin\Debug\Assembly-CSharp.dll
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\Temp\bin\Debug\Assembly-CSharp.pdb
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\Temp\bin\Debug\nunit.framework.dll
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEditor.dll
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEngine.Analytics.dll
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEngine.dll
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEngine.HoloLens.dll
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEngine.Networking.dll
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEngine.TestRunner.dll
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEngine.UI.dll
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEngine.VR.dll
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\Temp\bin\Debug\Mono.Cecil.dll
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\Temp\bin\Debug\Unity.SerializationLogic.dll
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\Temp\bin\Debug\Unity.DataContract.dll
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\Temp\bin\Debug\Unity.UNetWeaver.dll
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\Temp\bin\Debug\Unity.CecilTools.dll
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\Temp\bin\Debug\Mono.Cecil.Pdb.dll
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\Temp\bin\Debug\Mono.Cecil.Mdb.dll
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEngine.xml
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEditor.xml
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEngine.UI.xml
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEngine.Networking.xml
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEngine.TestRunner.xml
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\Temp\bin\Debug\nunit.framework.xml
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEngine.Analytics.xml
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEngine.HoloLens.xml
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\Temp\bin\Debug\UnityEngine.VR.xml
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\obj\Debug\Assembly-CSharp.dll
+C:\Users\Steffe\Desktop\FH\3.Semester\ITP3\Bit-Z\Bit-Z\Bit-Z\obj\Debug\Assembly-CSharp.pdb
