@@ -1,16 +1,23 @@
 ﻿
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
     public float maxSpeed = 10f;
-    public Vector2 jumpForce = new Vector2(0, 300);
+    public float jumpForce = 10f;
     public Rigidbody2D rig_bod;
     public LayerMask ground;
     public static int dirFacing = 2;
-    public int life = 3;
+    public int Health;
+    public GameOver gameOver;
+    //public Slider Healthbar;
+
+
+
     private GameObject Bullet;
+    public int _currentHealth;
     bool facingRight = true;
 
     Animator anim;
@@ -21,6 +28,10 @@ public class PlayerController : MonoBehaviour {
     {
         rig_bod = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+        _currentHealth = Health;
+        //Healthbar.maxValue = Health;
+        //Healthbar.value = Health;
 
 
     }
@@ -55,12 +66,15 @@ public class PlayerController : MonoBehaviour {
             Jump();     
         }
 
-        if(life == 0)
+        if (_currentHealth <= 0)
         {
-            //Destroy(this.gameObject);
-            Time.timeScale = 0;
-            Application.Quit();
+            _currentHealth = 0;
+            Death();
         }
+
+        Debug.Log("Health: " + _currentHealth);
+        //Debug.Log("Healthbar-Health: " + Healthbar.value);
+
     }
 
     void Flip()
@@ -95,7 +109,7 @@ public class PlayerController : MonoBehaviour {
         }
         else
         {
-            rig_bod.AddForce(new Vector2(0, 10), ForceMode2D.Impulse);
+            rig_bod.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
         }
     }
 
@@ -103,13 +117,28 @@ public class PlayerController : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            life--;
-            Debug.Log(life);
+            TakeDamage(1);
         }
         if(collision.gameObject.tag == "Bullet")
         {
             Physics2D.IgnoreLayerCollision(8, 11);
         }
+    }
+
+    void TakeDamage(int amount)
+    {
+        _currentHealth -= amount;
+        //Healthbar.value = _currentHealth;
+    }
+
+    void Death()
+    {
+        //Destroy(this.gameObject);
+        //Time.timeScale = 0;
+
+            gameOver.isDead = true;
+            //Debug.Break();
+            //Application.Quit();
     }
 }
 

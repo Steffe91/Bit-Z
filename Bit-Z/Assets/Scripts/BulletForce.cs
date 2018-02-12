@@ -36,4 +36,18 @@ public class BulletForce : MonoBehaviour {
             print(goRight);
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Destroy(this.gameObject);
+            Debug.Log(this.gameObject);
+            Debug.Log("destroy Bullet");
+        }
+
+        if(collision.gameObject.tag == "MainCamera")
+        {
+            Physics2D.IgnoreLayerCollision(0, 11);
+        }
+    }
 }

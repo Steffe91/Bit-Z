@@ -25,12 +25,10 @@ public class Shooting : MonoBehaviour {
             if(PlayerController.dirFacing == 1)
             {
                 ShootLeft();
-                print("links schießen");
             }
             else if(PlayerController.dirFacing == 2)
             {
-                ShootRight();
-                print("rechts schießen");
+                ShootRight();   
             }
         }
         

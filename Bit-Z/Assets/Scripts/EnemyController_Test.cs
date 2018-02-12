@@ -68,6 +68,5 @@ public class EnemyController_Test : MonoBehaviour {
         {
             Destroy(this.gameObject);
         }
-
     }
 }
