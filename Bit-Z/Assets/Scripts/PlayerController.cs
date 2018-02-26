@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour {
             Death();
         }
 
-        Debug.Log("Health: " + _currentHealth);
+        //Debug.Log("Health: " + _currentHealth);
         //Debug.Log("Healthbar-Health: " + Healthbar.value);
 
 		//Allow player movement only when not attacking

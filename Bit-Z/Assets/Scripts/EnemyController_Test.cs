@@ -33,24 +33,29 @@ public class EnemyController_Test : MonoBehaviour {
     /// </summary>
     void FixedUpdate()
     {
-        Player_pos = Player.transform.position;
-        Enemy_pos = this.transform.position;
+        
 
-        move_Direction = Player_pos - Enemy_pos;
-
-        move = move_Direction.magnitude;
-
-        AI_rig.AddForce(move_Direction);
-
-        enemy_anim.SetFloat("Speed", Mathf.Abs(move));
-
-        if(Player_pos.x > Enemy_pos.x && facingLeft == true)
+        if(Time.timeScale != 0)
         {
-            Flip();
-        }
-        else if(Enemy_pos.x > Player_pos.x && facingLeft == false)
-        {
-            Flip();
+            Player_pos = Player.transform.position;
+            Enemy_pos = this.transform.position;
+       
+            move_Direction = Player_pos - Enemy_pos;
+
+            move = move_Direction.magnitude;
+
+            AI_rig.AddForce(move_Direction);
+
+            enemy_anim.SetFloat("Speed", Mathf.Abs(move));
+
+            if(Player_pos.x > Enemy_pos.x && facingLeft == true)
+            {
+                Flip();
+            }
+            else if(Enemy_pos.x > Player_pos.x && facingLeft == false)
+            {
+                Flip();
+            }
         }
     }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
+
 public class PauseMenu : MonoBehaviour {
 
     public string menu;
@@ -10,14 +11,21 @@ public class PauseMenu : MonoBehaviour {
     public bool isPaused;
 
     public GameObject pauseCanvas;
-	private GameObject Player;
+	public GameObject Player;
+    private GameObject Camera;
+    private GameObject[] Enemy;
 
-	// Use this for initialization
-	
-	// Update is called once per frame
 
-	void Start() {
+    
+    // Use this for initialization
+
+    // Update is called once per frame
+
+    void Start() {
 		Player = GameObject.FindGameObjectWithTag("Player");
+        Camera = GameObject.FindGameObjectWithTag("MainCamera");
+        Enemy = GameObject.FindGameObjectsWithTag("Enemy");
+
 	}
 
 	void Update ()
@@ -29,16 +37,29 @@ public class PauseMenu : MonoBehaviour {
 
 		if(isPaused)
         {
-            pauseCanvas.SetActive(true);
-            Time.timeScale = 0f;
-			//Player.GetComponent<PlayerController> ().enabled = Player.GetComponentInChildren<CameraController> ().enabled = false;
+            pauseCanvas.SetActive(true);      
+            Time.timeScale = 0;
+
+            Player.GetComponent<PlayerController>().enabled = false;
+            Player.GetComponent<Shooting>().enabled = false;
+            Camera.GetComponent<CameraController>().enabled = false;
+            
+            for(int i = 0; i < Enemy.Length; i++)
+            {
+                Debug.Log("in schleife");
+                Enemy[i].GetComponent<EnemyController_Test>().enabled = true;
+            }
 
         }
         else
         {
             pauseCanvas.SetActive(false);
             Time.timeScale = 1f;
-			//Player.GetComponent<PlayerController> ().enabled = Player.GetComponentInChildren<CameraController> ().enabled = true;	
+
+            Player.GetComponent<PlayerController>().enabled = true;
+            Player.GetComponent<Shooting>().enabled = true;
+            Camera.GetComponent<CameraController>().enabled = true;
+
         }
 
 

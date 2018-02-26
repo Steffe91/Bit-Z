@@ -34,9 +34,9 @@ public class GameManager : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update ()
+	void FixedUpdate ()
     {
         Life.sprite = HealthArr[player._currentHealth];
-        Debug.Log(HealthArr[player._currentHealth]);
+        //Debug.Log(HealthArr[player._currentHealth]);
 	}
 }

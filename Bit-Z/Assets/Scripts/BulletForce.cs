@@ -12,28 +12,31 @@ public class BulletForce : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-	    if(PlayerController.dirFacing == 1)
+	    if((int)PlayerState.Instance.DirectionFacing == -1)
         {
             goLeft = true;
         }
-        if(PlayerController.dirFacing == 2)
+        if((int)PlayerState.Instance.DirectionFacing == 1)
         {
             goRight = true;
         }
 	}
 	
 	// Update is called once per frame
-	void Update ()
+	void FixedUpdate ()
     {
+        if(Time.timeScale != 0)
+        { 
 	    if(goLeft == true)
         {
             GetComponent<Rigidbody2D>().AddForce(Vector3.left * speed);
-            print(goLeft);
+            //print(goLeft);
         }
         if (goRight == true)
         {
             GetComponent<Rigidbody2D>().AddForce(Vector3.right * speed);
-            print(goRight);
+            //print(goRight);
+        }
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -41,8 +44,8 @@ public class BulletForce : MonoBehaviour {
         if (collision.gameObject.tag == "Enemy")
         {
             Destroy(this.gameObject);
-            Debug.Log(this.gameObject);
-            Debug.Log("destroy Bullet");
+            //Debug.Log(this.gameObject);
+            //Debug.Log("destroy Bullet");
         }
 
         if(collision.gameObject.tag == "MainCamera")

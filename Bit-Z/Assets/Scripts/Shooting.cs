@@ -15,18 +15,18 @@ public class Shooting : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update ()
+	void FixedUpdate ()
     {
         posLeft = new Vector3(transform.position.x - 0.7f, transform.position.y);
         posRight = new Vector3(transform.position.x - 0.7f, transform.position.y);
 
         if(Input.GetKeyDown("space"))
         {
-            if(PlayerController.dirFacing == 1)
+            if((int)PlayerState.Instance.DirectionFacing == -1)
             {
                 ShootLeft();
             }
-            else if(PlayerController.dirFacing == 2)
+            else if((int)PlayerState.Instance.DirectionFacing == 1)
             {
                 ShootRight();   
             }

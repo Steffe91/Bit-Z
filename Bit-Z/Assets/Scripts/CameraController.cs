@@ -27,6 +27,7 @@ public class CameraController : MonoBehaviour {
     void Awake ()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
+
         InvokeRepeating("SpawnEnemy", spawnTime, spawnTime);
         //offset = transform.position - Player.transform.position;
     }
@@ -104,8 +105,11 @@ public class CameraController : MonoBehaviour {
 
     void SpawnEnemy()
     {
-        Instantiate(Enemy, new Vector3(UnityEngine.Random.Range(transform.position.x + offset, maxCameraPos.x), 0, 0),
-                                       Quaternion.identity);
+        if (Time.timeScale != 0)
+        {
+            Instantiate(Enemy, new Vector3(UnityEngine.Random.Range(transform.position.x + offset, maxCameraPos.x), 0, 0), Quaternion.identity);
+        }
+            
         //Physics2D.IgnoreCollision(GetComponent<Camera>().GetComponent<BoxCollider2D>(), Enemy.GetComponent<Collider2D>(), true);
 
         //Debug.Log("Camera Collider: " + GetComponent<Collider2D>());
