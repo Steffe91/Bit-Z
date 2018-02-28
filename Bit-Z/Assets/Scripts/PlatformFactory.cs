@@ -1,17 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-#region - Script Synopsis
-/*
-This script is attached to the main floor GameObject and instantiates, whenever a new floor GameObject is created, random
-Platform GameObject prefabs found in the Prefabs folder. An example of basic procedural generation, the platforms are created
-with either a more patterend or chaotic approach, depending on which method is run, either CreateChaotic() or CreatePatterened().
-*/
-#endregion
 
 public class PlatformFactory : MonoBehaviour
 {
-    //References to the three different types of platform prefabs, set in the inspector of the 1_floor GameObject
     public GameObject StoneyPlatform;
     public GameObject GrassyPlatform;
     public GameObject RubberPlatform;
@@ -43,7 +35,6 @@ public class PlatformFactory : MonoBehaviour
                 yPosition += 1.5f;
             }
 
-            //Platform Array Initializer
             GameObject[] randomPlatforms = new GameObject[3] { StoneyPlatform, GrassyPlatform, RubberPlatform };
 
             int PatternOrRandom = Random.Range(1, 4);
@@ -55,7 +46,6 @@ public class PlatformFactory : MonoBehaviour
         }
 	}
 
-    //Method of instatiation a more randomized pattern of platforms
     private void CreateChaotic(Vector3[,] possiblePositions, GameObject[] randomPlatforms)
     {
         int percentChance = 75;
@@ -74,7 +64,6 @@ public class PlatformFactory : MonoBehaviour
         }
     }
 
-    //Method of instantiating a more patterned form of platforms
     private void CreatePatterned(Vector3[,] possiblePositions, GameObject[] randomPlatforms)
     {
         int patternCounter = 0;
@@ -91,7 +80,6 @@ public class PlatformFactory : MonoBehaviour
         }
     }
 
-    //Ensures that all platforms are wiped clean when copied along with a new floor tile copy
     private void CleanSlate()
     {
         foreach (Transform child in transform)

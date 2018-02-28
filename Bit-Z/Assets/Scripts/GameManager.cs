@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour {
     {
         
         //Instantiate(m_PLayerPrefab);
-        Instantiate(m_Background);
+     //   Instantiate(m_Background);
         //Instantiate(m_MainCamera);
         //Instantiate(m_HUD);
 
