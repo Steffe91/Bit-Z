@@ -42,7 +42,10 @@ public class PauseMenu : MonoBehaviour {
 
             Player.GetComponent<PlayerController>().enabled = false;
             Player.GetComponent<Shooting>().enabled = false;
+			Player.GetComponent<Animator> ().enabled = false;
             Camera.GetComponent<CameraController>().enabled = false;
+			Player.GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
+
             
             for(int i = 0; i < Enemy.Length; i++)
             {
@@ -59,6 +62,8 @@ public class PauseMenu : MonoBehaviour {
             Player.GetComponent<PlayerController>().enabled = true;
             Player.GetComponent<Shooting>().enabled = true;
             Camera.GetComponent<CameraController>().enabled = true;
+			Player.GetComponent<Animator> ().enabled = true;
+
 
         }
 

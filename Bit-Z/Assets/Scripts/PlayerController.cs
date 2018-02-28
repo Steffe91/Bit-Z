@@ -63,6 +63,10 @@ public class PlayerController : MonoBehaviour {
 		Walk();
 		Jump();
 
+		float move = Input.GetAxis("Horizontal");
+		anim.SetFloat("Speed", Mathf.Abs(move));
+		PlayerBody.velocity = new Vector2(move * maxSpeed, PlayerBody.velocity.y);
+
       /*  float move = Input.GetAxis("Horizontal");
 
         anim.SetFloat("Speed", Mathf.Abs(move));

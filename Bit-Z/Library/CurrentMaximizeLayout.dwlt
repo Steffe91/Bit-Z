@@ -23,7 +23,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 613}
   m_MaxSize: {x: 14004, y: 18063}
   vertical: 0
-  controlID: 5971
+  controlID: 11329
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 613}
   m_MaxSize: {x: 10002, y: 18063}
   vertical: 1
-  controlID: 5972
+  controlID: 11330
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 342}
   m_MaxSize: {x: 8006, y: 8042}
   vertical: 0
-  controlID: 5973
+  controlID: 11331
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -201,8 +201,8 @@ MonoBehaviour:
     height: 510
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: ec250000
-    m_LastClickedID: 0
+    m_SelectedIDs: 36260000
+    m_LastClickedID: 9782
     m_ExpandedIDs: 76fbffffe2fbffffe4fbffff000000005c260000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_MinSize: {x: 204, y: 342}
   m_MaxSize: {x: 4004, y: 8042}
   vertical: 1
-  controlID: 5974
+  controlID: 11332
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -463,18 +463,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Graphics/TestEnemy/run
+    - Assets/Graphics/TestCharakter
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Graphics/TestEnemy/run
+  - Assets/Graphics/TestCharakter
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /Users/lisi/Documents/FHTechnikum/WS2017/BIT_Z/Stefan/Bit-Z/Bit-Z
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: dc250000
-    m_LastClickedID: 9692
+    m_SelectedIDs: 9c250000
+    m_LastClickedID: 9628
     m_ExpandedIDs: 00000000ce2400000625000058250000ca2500008a270000ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -491,7 +491,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 12}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -528,8 +528,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: ec250000
-    m_LastClickedInstanceID: 9708
+    m_SelectedInstanceIDs: 36260000
+    m_LastClickedInstanceID: 9782
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: 30250000d42700007a250000b8260000
     m_RenameOverlay:
@@ -547,7 +547,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 12}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -609,7 +609,7 @@ MonoBehaviour:
     y: 19
     width: 315
     height: 781
-  m_ScrollPosition: {x: 0, y: 352.00378}
+  m_ScrollPosition: {x: 0, y: 0}
   m_InspectorMode: 0
   m_PreviewResizer:
     m_CachedPref: 205

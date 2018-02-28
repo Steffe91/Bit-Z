@@ -35,28 +35,28 @@ public class EnemyController_Test : MonoBehaviour {
     void FixedUpdate()
     {
         
-		if(!PauseMenu.isPaused)
-        {
-            Player_pos = Player.transform.position;
-            Enemy_pos = this.transform.position;
+		if (!PauseMenu.isPaused) {
+			Player_pos = Player.transform.position;
+			Enemy_pos = this.transform.position;
        
-            move_Direction = Player_pos - Enemy_pos;
+			move_Direction = Player_pos - Enemy_pos;
+			enemy_anim.enabled = true;
 
-            move = move_Direction.magnitude;
+			move = move_Direction.magnitude;
 
-            AI_rig.AddForce(move_Direction);
+			AI_rig.AddForce (move_Direction);
 
-            enemy_anim.SetFloat("Speed", Mathf.Abs(move));
+			enemy_anim.SetFloat ("Speed", Mathf.Abs (move));
 
-            if(Player_pos.x > Enemy_pos.x && facingLeft == true)
-            {
-                Flip();
-            }
-            else if(Enemy_pos.x > Player_pos.x && facingLeft == false)
-            {
-                Flip();
-            }
-        }
+			if (Player_pos.x > Enemy_pos.x && facingLeft == true) {
+				Flip ();
+			} else if (Enemy_pos.x > Player_pos.x && facingLeft == false) {
+				Flip ();
+			}
+		} else {
+			enemy_anim.enabled = false;
+			AI_rig.velocity = Vector2.zero;
+		}
     }
 
     void Flip()

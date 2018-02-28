@@ -103,7 +103,7 @@ public class CameraController : MonoBehaviour {
 
     } */
 
-  /*  void SpawnEnemy()
+    void SpawnEnemy()
     {
         if (Time.timeScale != 0)
         {
@@ -116,7 +116,7 @@ public class CameraController : MonoBehaviour {
 
         //Debug.Log("Camera Collider: " + GetComponent<Collider2D>());
         //Debug.Log("Enemy Collider: " + Enemy.GetComponent<Collider2D>());
-    }  */
+    }  
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

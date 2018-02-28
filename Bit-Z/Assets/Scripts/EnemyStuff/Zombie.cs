@@ -9,7 +9,7 @@ public class Zombie : Enemy
 		HP = 1;
 
 		//Collider.radius = 0.21f;
-		Body.gravityScale = 2;
+		//Body.gravityScale = 1;
 
 		GameObject Hero = GameObject.Find("TestCharakter");
 		Direction = (Hero.transform.position.x - transform.position.x < 0) ? -1 : 1;
