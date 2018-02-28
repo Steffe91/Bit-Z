@@ -44,14 +44,7 @@ public class EnemyController_Test : MonoBehaviour {
 
 			move = move_Direction.magnitude;
 
-			if(facingLeft)
-			{
-				AI_rig.GetComponent<Rigidbody2D>().velocity = new Vector2(-Speed, GetComponent<Rigidbody2D>().velocity.y);
-			}
-			else if(!facingLeft)
-			{
-				AI_rig.GetComponent<Rigidbody2D>().velocity = new Vector2(Speed, GetComponent<Rigidbody2D>().velocity.y);
-			}
+			AI_rig.AddForce (move_Direction);
 
 			enemy_anim.SetFloat ("Speed", Mathf.Abs (move));
 
