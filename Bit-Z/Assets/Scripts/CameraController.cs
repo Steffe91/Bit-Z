@@ -39,9 +39,9 @@ public class CameraController : MonoBehaviour {
 	void LateUpdate()
 	{
 		float offset = Camera.main.orthographicSize * Camera.main.aspect / 2;
-		Vector3 CheeseScreenPosition = Camera.main.WorldToViewportPoint(Player.transform.position);
+		Vector3 PlayerPos = Camera.main.WorldToViewportPoint(Player.transform.position);
 
-		if (CheeseScreenPosition.x < 0.25f || CheeseScreenPosition.x > 0.75f)
+		if (PlayerPos.x < 0.25f || PlayerPos.x > 0.75f)
 			CameraState = CameraState.Following;
 
 		if (CameraState == CameraState.Following && PlayerState.Instance.Horizontal == Horizontal.Idle)
@@ -54,7 +54,7 @@ public class CameraController : MonoBehaviour {
 			float x = Mathf.Lerp(transform.position.x, Player.transform.position.x, 0.02f * Time.deltaTime * 60);
 			transform.position = new Vector3(x, transform.position.y, transform.position.z);
 
-			if (Math.Round(CheeseScreenPosition.x, 1) == 0.5f)
+			if (Math.Round(PlayerPos.x, 1) == 0.5f)
 				CameraState = CameraState.Stationary;
 		}
 	}
@@ -103,18 +103,20 @@ public class CameraController : MonoBehaviour {
 
     } */
 
-    void SpawnEnemy()
+  /*  void SpawnEnemy()
     {
         if (Time.timeScale != 0)
         {
-            Instantiate(Enemy, new Vector3(UnityEngine.Random.Range(transform.position.x + offset, maxCameraPos.x), 0, 0), Quaternion.identity);
+			if (!PauseMenu.isPaused) {
+				Instantiate(Enemy, new Vector3(UnityEngine.Random.Range(transform.position.x + offset, maxCameraPos.x), 0, 0), Quaternion.identity);
+			}
         }
             
         //Physics2D.IgnoreCollision(GetComponent<Camera>().GetComponent<BoxCollider2D>(), Enemy.GetComponent<Collider2D>(), true);
 
         //Debug.Log("Camera Collider: " + GetComponent<Collider2D>());
         //Debug.Log("Enemy Collider: " + Enemy.GetComponent<Collider2D>());
-    }
+    }  */
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

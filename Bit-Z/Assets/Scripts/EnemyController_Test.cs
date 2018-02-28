@@ -23,7 +23,8 @@ public class EnemyController_Test : MonoBehaviour {
         Player = GameObject.FindGameObjectWithTag("Player");
         AI_rig = GetComponent<Rigidbody2D>();
 
-        enemy_anim = GetComponent<Animator>();
+		if(!PauseMenu.isPaused)
+			enemy_anim = GetComponent<Animator>();
         
     }
 
@@ -34,8 +35,7 @@ public class EnemyController_Test : MonoBehaviour {
     void FixedUpdate()
     {
         
-
-        if(Time.timeScale != 0)
+		if(!PauseMenu.isPaused)
         {
             Player_pos = Player.transform.position;
             Enemy_pos = this.transform.position;

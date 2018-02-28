@@ -8,7 +8,7 @@ public class PauseMenu : MonoBehaviour {
 
     public string menu;
 
-    public bool isPaused;
+    public static bool isPaused;
 
     public GameObject pauseCanvas;
 	public GameObject Player;
