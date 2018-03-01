@@ -10,7 +10,7 @@ public class EnemyController_Test : MonoBehaviour {
     public float move;
     public float Speed = 15f;
     public bool facingLeft = true;
-	public static int Counter = 0;
+	public static int Counter = 20;
     Vector2 Player_pos = new Vector2();
     Vector2 Enemy_pos = new Vector2();
     Vector2 move_Direction = new Vector2();
@@ -45,7 +45,14 @@ public class EnemyController_Test : MonoBehaviour {
 
 			move = move_Direction.magnitude;
 
-			AI_rig.AddForce (move_Direction);
+			if(facingLeft)
+			{
+				AI_rig.GetComponent<Rigidbody2D>().velocity = new Vector2(-Speed, GetComponent<Rigidbody2D>().velocity.y);
+			}
+			else if(!facingLeft)
+			{
+				AI_rig.GetComponent<Rigidbody2D>().velocity = new Vector2(Speed, GetComponent<Rigidbody2D>().velocity.y);
+			}
 
 			enemy_anim.SetFloat ("Speed", Mathf.Abs (move));
 
