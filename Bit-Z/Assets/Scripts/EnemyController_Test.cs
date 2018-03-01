@@ -10,6 +10,7 @@ public class EnemyController_Test : MonoBehaviour {
     public float move;
     public float Speed = 15f;
     public bool facingLeft = true;
+	public static int Counter = 0;
     Vector2 Player_pos = new Vector2();
     Vector2 Enemy_pos = new Vector2();
     Vector2 move_Direction = new Vector2();
@@ -72,6 +73,9 @@ public class EnemyController_Test : MonoBehaviour {
         if (collision.gameObject.tag == "Bullet")
         {
             Destroy(this.gameObject);
+			Counter++;
+			Debug.Log("Counter: " +Counter);
+
         }
     }
 }

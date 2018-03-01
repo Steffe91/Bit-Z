@@ -105,7 +105,7 @@ public class CameraController : MonoBehaviour {
 
     void SpawnEnemy()
     {
-        if (Time.timeScale != 0)
+		if (Time.timeScale != 0 && EnemyController_Test.Counter <=20)
         {
 			if (!PauseMenu.isPaused) {
 				Instantiate(Enemy, new Vector3(UnityEngine.Random.Range(transform.position.x + offset, maxCameraPos.x), 0, 0), Quaternion.identity);
