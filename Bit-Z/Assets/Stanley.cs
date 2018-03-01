@@ -7,6 +7,7 @@ public class Stanley : MonoBehaviour {
 	GameObject Player;
 
 	public float Life;
+    //public bool StanleyIsDead;
 	public float Move;
 	public int Speed = 4;
 	public bool FacingLeft = true;
@@ -15,8 +16,6 @@ public class Stanley : MonoBehaviour {
 	Vector2 StanleyDaBoss = new Vector2();
 	Vector2 MoveDirection = new Vector2();
 	Rigidbody2D StanleysHotRigidBody;
-
-	public Win win;
 
 	public int Direction;
 
@@ -27,8 +26,9 @@ public class Stanley : MonoBehaviour {
 	{
 		Player = GameObject.FindGameObjectWithTag("Player");
 		StanleysHotRigidBody = GetComponent<Rigidbody2D>();
+        
 
-		if(!PauseMenu.isPaused)
+        if (!PauseMenu.isPaused)
 			EnemyAnimator = GetComponent<Animator>();
 	}
 
@@ -37,39 +37,51 @@ public class Stanley : MonoBehaviour {
 	void FixedUpdate()
 	{
 
-		if (!PauseMenu.isPaused) {
+		if (!PauseMenu.isPaused)
+        {
 			HeroPosition = Player.transform.position;
 			StanleyDaBoss = this.transform.position;
 
 			MoveDirection = HeroPosition - StanleyDaBoss;
-//			EnemyAnimator.enabled = true;
+			//EnemyAnimator.enabled = true;
 			Direction = Random.Range (0, 2) * 2 - 1;
 
-			StanleyJumpLikeCrazy ();
+            Debug.Log("Direction" + Direction);
+			
 
 			Move = MoveDirection.magnitude;
 
-		/*	if(FacingLeft)
-			{
-				StanleysHotRigidBody.GetComponent<Rigidbody2D>().velocity = new Vector2(-Speed, GetComponent<Rigidbody2D>().velocity.y);
-			}
-			else if(!FacingLeft)
-			{
-				StanleysHotRigidBody.GetComponent<Rigidbody2D>().velocity = new Vector2(Speed, GetComponent<Rigidbody2D>().velocity.y);
-			} */
+            if (FacingLeft)
+            {
+                //StanleysHotRigidBody.GetComponent<Rigidbody2D>().velocity = new Vector2(-Speed, GetComponent<Rigidbody2D>().velocity.y);
+                StanleysHotRigidBody.GetComponent<Rigidbody2D>().velocity = new Vector2(-(Random.Range(-5, 5) * Speed), Random.Range(-5, 5) * Speed);
+            }
+            else if (!FacingLeft)
+            {
+                //StanleysHotRigidBody.GetComponent<Rigidbody2D>().velocity = new Vector2(Speed, GetComponent<Rigidbody2D>().velocity.y);
+                StanleysHotRigidBody.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-5, 5) * Speed, Random.Range(-5,5)*Speed);
+            }
 
-//			EnemyAnimator.SetFloat ("Speed", Mathf.Abs (Move));
+            //EnemyAnimator.SetFloat("Speed", Mathf.Abs(Move));
 
-			if (HeroPosition.x > StanleyDaBoss.x && FacingLeft == true) {
-				Flip ();
-			} else if (StanleyDaBoss.x > HeroPosition.x && FacingLeft == false) {
+            if (HeroPosition.x > StanleyDaBoss.x && FacingLeft == true)
+            {
 				Flip ();
 			}
-		} else {
-//			EnemyAnimator.enabled = false;
-			StanleysHotRigidBody.velocity = Vector2.zero;
-		}
-	}
+            else if (StanleyDaBoss.x > HeroPosition.x && FacingLeft == false)
+            {
+				Flip ();
+			}
+
+            StanleyJumpLikeCrazy ();
+        }
+
+        //EnemyAnimator.enabled = false;
+        //StanleysHotRigidBody.velocity = Vector2.zero;
+
+
+
+    }
 
 	void Flip()
 	{
@@ -81,11 +93,14 @@ public class Stanley : MonoBehaviour {
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		if (Life <= 0) {
-			Destroy(this.gameObject);
-			win.hasWon = true;
-		}
-		else if (collision.gameObject.tag == "Bullet")
+        if (Life < 1)
+        {
+            PlayerController.StanleyIsDead = true;
+            Destroy(this.gameObject);
+            
+        }
+
+        if (collision.gameObject.tag == "Bullet")
 		{
 			Life--;
 		}
@@ -98,8 +113,7 @@ public class Stanley : MonoBehaviour {
 		if (StanleysHotRigidBody.velocity.y == 0)
 			StanleysHotRigidBody.AddForce(new Vector2(0, 20));
 
-
-		// bouncyBill.ScriptComponent.Initialize(speed: 4, direction: Random.Range(0, 2) * 2 - 1, position: new Vector3(randomX, randomY, 1));
+		//bouncyBill.ScriptComponent.Initialize(speed: 4, direction: Random.Range(0, 2) * 2 - 1, position: new Vector3(randomX, randomY, 1));
 
 	}
 

@@ -12,16 +12,21 @@ public class PlayerController : MonoBehaviour {
     public static int dirFacing = 2;
     public int Health;
     public GameOver gameOver;
+    public Win win;
+    private CameraController cc;
+    public static bool StanleyIsDead;
+    //private Stanley stan;
     //public Slider Healthbar;
 
-	// tweaking movement
-	float HorizontalMotion;
+    // tweaking movement
+    float HorizontalMotion;
 	bool JumpActive;
 	public static int MoveSpeed;
 
 
 
     private GameObject Bullet;
+    
     public int _currentHealth;
     bool facingRight = true;
 
@@ -32,8 +37,9 @@ public class PlayerController : MonoBehaviour {
 	void Start ()
     {
 
-		// tweak movement
-		HorizontalMotion = 0;
+        // tweak movement
+        StanleyIsDead = false;
+        HorizontalMotion = 0;
 		MoveSpeed = 10;
 
 		PlayerState.Instance.Horizontal = Horizontal.Idle;
@@ -46,6 +52,8 @@ public class PlayerController : MonoBehaviour {
 
         PlayerBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+        
 
         _currentHealth = Health;
         //Healthbar.maxValue = Health;
@@ -60,34 +68,17 @@ public class PlayerController : MonoBehaviour {
     /// </summary>
     void FixedUpdate()
     {
-		Walk();
+        if (StanleyIsDead)
+        {
+            Win();
+        }
+
+        Walk();
 		Jump();
 
 		float move = Input.GetAxis("Horizontal");
 		anim.SetFloat("Speed", Mathf.Abs(move));
 		PlayerBody.velocity = new Vector2(move * maxSpeed, PlayerBody.velocity.y);
-
-      /*  float move = Input.GetAxis("Horizontal");
-
-        anim.SetFloat("Speed", Mathf.Abs(move));
-
-        PlayerBody.velocity = new Vector2(move * maxSpeed, PlayerBody.velocity.y);
-
-        if (move > 0 && !facingRight)
-        {
-            Flip();
-            dirFacing = 2;
-        }
-        else if (move < 0 && facingRight)
-        {
-            Flip();
-            dirFacing = 1;
-        }
-
-		if (Input.GetKeyDown("w"))
-        {        
-            Jump();     
-        } */
 
         if (_currentHealth <= 0)
         {
@@ -98,8 +89,8 @@ public class PlayerController : MonoBehaviour {
         //Debug.Log("Health: " + _currentHealth);
         //Debug.Log("Healthbar-Health: " + Healthbar.value);
 
-		//Allow player movement only when not attacking
-		if (PlayerState.Instance.Attack != Attack.Passive)
+        //Allow player movement only when not attacking
+        if (PlayerState.Instance.Attack != Attack.Passive)
 		{
 			PlayerBody.velocity = new Vector2(0, 0.1f);
 			HorizontalMotion = 0;
@@ -128,7 +119,6 @@ public class PlayerController : MonoBehaviour {
 		if ((int)previousMotion * (int)currentMotion == -1)
 			PlayerState.Instance.Horizontal = Horizontal.Idle;
 
-
     }
 
 	private void Walk()
@@ -149,45 +139,6 @@ public class PlayerController : MonoBehaviour {
 			JumpActive = false;
 		}
 	}
-
-	/*
-    void Flip()
-    {
-        facingRight = !facingRight;
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
-    }
-
-    bool IsGrounded()
-    {
-        Vector2 pos = transform.position;
-        Vector2 dir = Vector2.down;
-        float dis = 2.5f;
-
-        Debug.DrawRay(pos, dir, Color.green);
-        RaycastHit2D hit = Physics2D.Raycast(pos, dir, dis, ground);
-        if(hit.collider != null)
-        {
-            return true;
-        }
-
-        return false;
-    }
-
-    void Jump()
-    {
-        if(!IsGrounded())
-        {
-            return;
-        }
-        else
-        {
-            PlayerBody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-        }
-    }
-*/
-
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -215,6 +166,11 @@ public class PlayerController : MonoBehaviour {
             gameOver.isDead = true;
             //Debug.Break();
             //Application.Quit();
+    }
+
+    void Win()
+    {
+        win.hasWon = true;
     }
 }
 

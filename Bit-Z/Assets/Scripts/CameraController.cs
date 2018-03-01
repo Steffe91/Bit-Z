@@ -15,7 +15,8 @@ public class CameraController : MonoBehaviour {
     public Vector3 minCameraPos;
     public Vector3 maxCameraPos;
     public float spawnTime = 3f;
-
+    public GameObject stan;
+    public Stanley _stan;
 	private bool BossSpawned = false;
 
     private float offset;
@@ -83,8 +84,11 @@ public class CameraController : MonoBehaviour {
 	void SpawnBoss()
 	{
 		Debug.Log("STANLEY!");
-		Instantiate (Boss, new Vector3 (UnityEngine.Random.Range(transform.position.x + offset, maxCameraPos.x),0,0), Quaternion.identity);
-		BossSpawned = true;
+        //Instantiate (Boss, new Vector3 (UnityEngine.Random.Range(transform.position.x + offset, maxCameraPos.x),0,0), Quaternion.identity);
+        stan = (GameObject)Instantiate(Boss, new Vector3(UnityEngine.Random.Range(transform.position.x + offset, maxCameraPos.x), 0, 0), Quaternion.identity);
+        Stanley _stan = stan.GetComponent<Stanley>();
+
+        BossSpawned = true;
 	}
 
 

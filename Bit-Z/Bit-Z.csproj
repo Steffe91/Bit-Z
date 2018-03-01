@@ -82,15 +82,21 @@
     <Compile Include="Assets\Scripts\BulletForce.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\EnemyController_Test.cs" />
+    <Compile Include="Assets\Scripts\EnemyStuff\Enemy.cs" />
+    <Compile Include="Assets\Scripts\EnemyStuff\EnemySpawn.cs" />
+    <Compile Include="Assets\Scripts\EnemyStuff\Zombie.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GameOver.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\ObstacleFactory.cs" />
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\PlatformFactory.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerState.cs" />
     <Compile Include="Assets\Scripts\ScrollBackgrounds.cs" />
     <Compile Include="Assets\Scripts\Shooting.cs" />
+    <Compile Include="Assets\Scripts\Win.cs" />
+    <Compile Include="Assets\Stanley.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

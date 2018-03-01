@@ -5,17 +5,20 @@ using UnityEngine;
 
 public class Win : MonoBehaviour {
 
-	public bool hasWon;
+	public bool hasWon = false;
 	public GameObject GameWinCanvas;
 
 	void Start() {
 		hasWon = false;
+        Debug.Log("hasWon: " + hasWon);
 	}
 
 	void Update()
 	{
+        Debug.Log("UpdateHasWon: " + hasWon);
 		if(hasWon)
 		{
+            Debug.Log("GEWONNEN!");
 			GameWinCanvas.SetActive(true);
 			Time.timeScale = 0;
 		}
