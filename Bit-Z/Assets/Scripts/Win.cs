@@ -19,6 +19,7 @@ public class Win : MonoBehaviour {
 		if(hasWon)
 		{
             Debug.Log("GEWONNEN!");
+			EnemyController_Test.Counter = 0;
 			GameWinCanvas.SetActive(true);
 			Time.timeScale = 0;
 		}

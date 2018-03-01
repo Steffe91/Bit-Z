@@ -65,6 +65,7 @@ public class CameraController : MonoBehaviour {
 
     void SpawnEnemy()
     {
+		offset = 20.2f;
 		
 		if (Time.timeScale != 0 && EnemyController_Test.Counter < 20)
         {
@@ -79,7 +80,7 @@ public class CameraController : MonoBehaviour {
 			SpawnBoss ();
 		}
 
-    }  
+    } 
 
 	void SpawnBoss()
 	{

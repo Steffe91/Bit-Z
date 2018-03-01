@@ -10,7 +10,7 @@ public class Stanley : MonoBehaviour {
     //public bool StanleyIsDead;
 	public float Move;
 	public int Speed = 4;
-	public bool FacingLeft = true;
+	public bool FacingLeft = false;
 	public static int Counter = 0;
 	Vector2 HeroPosition = new Vector2();
 	Vector2 StanleyDaBoss = new Vector2();
@@ -51,18 +51,18 @@ public class Stanley : MonoBehaviour {
 
 			Move = MoveDirection.magnitude;
 
-            if (FacingLeft)
+            if (!FacingLeft)
             {
                 //StanleysHotRigidBody.GetComponent<Rigidbody2D>().velocity = new Vector2(-Speed, GetComponent<Rigidbody2D>().velocity.y);
-                StanleysHotRigidBody.GetComponent<Rigidbody2D>().velocity = new Vector2(-(Random.Range(-5, 5) * Speed), Random.Range(-5, 5) * Speed);
+                StanleysHotRigidBody.velocity = new Vector2(-(Random.Range(-5, 5) * Speed), Random.Range(-5, 5) * Speed);
             }
-            else if (!FacingLeft)
+            else if (FacingLeft)
             {
                 //StanleysHotRigidBody.GetComponent<Rigidbody2D>().velocity = new Vector2(Speed, GetComponent<Rigidbody2D>().velocity.y);
-                StanleysHotRigidBody.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-5, 5) * Speed, Random.Range(-5,5)*Speed);
+                StanleysHotRigidBody.velocity = new Vector2(Random.Range(-5, 5) * Speed, Random.Range(-5,5)*Speed);
             }
 
-            //EnemyAnimator.SetFloat("Speed", Mathf.Abs(Move));
+            EnemyAnimator.SetFloat("Speed", Mathf.Abs(Move));
 
             if (HeroPosition.x > StanleyDaBoss.x && FacingLeft == true)
             {
@@ -73,7 +73,7 @@ public class Stanley : MonoBehaviour {
 				Flip ();
 			}
 
-            StanleyJumpLikeCrazy ();
+           // StanleyJumpLikeCrazy ();
         }
 
         //EnemyAnimator.enabled = false;

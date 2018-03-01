@@ -16,6 +16,7 @@ public class GameOver : MonoBehaviour {
     {
         if(isDead)
         {
+			EnemyController_Test.Counter = 0;
             gameOverCanvas.SetActive(true);
             Time.timeScale = 0;
         }

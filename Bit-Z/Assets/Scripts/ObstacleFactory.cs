@@ -35,12 +35,8 @@ public class ObstacleFactory : MonoBehaviour {
 
 			GameObject[] randomPlatforms = new GameObject[3] { Acid, Sewer2, Sewer };
 
-			int PatternOrRandom = Random.Range(1, 4);
-
-			if (PatternOrRandom < 3)
-				CreatePatterned(possiblePositions, randomPlatforms);
-			else
-				CreateChaotic(possiblePositions, randomPlatforms);
+			int PatternOrRandom = Random.Range(1, 7);
+			CreateChaotic(possiblePositions, randomPlatforms);
 		}
 	}
 
@@ -61,22 +57,7 @@ public class ObstacleFactory : MonoBehaviour {
 			percentChance -= 5;
 		}
 	}
-
-	private void CreatePatterned(Vector3[,] possiblePositions, GameObject[] randomPlatforms)
-	{
-		int patternCounter = 0;
-		int evenOrOdd = Random.Range(0, 2);
-
-		foreach (Vector3 actualPosition in possiblePositions)
-		{
-			if (patternCounter % 2 == evenOrOdd && patternCounter < Random.Range(5,15))
-			{
-				GameObject createdPlatform = (GameObject)GameObject.Instantiate(randomPlatforms[Random.Range(0, 3)], actualPosition, transform.rotation);
-				createdPlatform.transform.parent = this.gameObject.transform;
-			}
-			patternCounter++;
-		}
-	}
+		
 
 	private void CleanSlate()
 	{

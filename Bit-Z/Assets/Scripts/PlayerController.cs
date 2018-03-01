@@ -23,8 +23,6 @@ public class PlayerController : MonoBehaviour {
 	bool JumpActive;
 	public static int MoveSpeed;
 
-
-
     private GameObject Bullet;
     
     public int _currentHealth;

@@ -28,7 +28,7 @@ public class PlatformFactory : MonoBehaviour
             Vector3[,] possiblePositions = new Vector3[5, 3];
 
             float yPosition = -2f;
-            float xPosition = -3.6f;
+            float xPosition = -6.6f;
 
             int MaxRows = 5;
             int MaxColumns = 3;
@@ -47,11 +47,7 @@ public class PlatformFactory : MonoBehaviour
             GameObject[] randomPlatforms = new GameObject[3] { StoneyPlatform, GrassyPlatform, RubberPlatform };
 
             int PatternOrRandom = Random.Range(1, 4);
-
-            if (PatternOrRandom < 3)
-                CreatePatterned(possiblePositions, randomPlatforms);
-            else
-                CreateChaotic(possiblePositions, randomPlatforms);
+			CreateChaotic(possiblePositions, randomPlatforms);
         }
 	}
 
@@ -73,24 +69,7 @@ public class PlatformFactory : MonoBehaviour
             percentChance -= 5;
         }
     }
-
-    //Method of instantiating a more patterned form of platforms
-    private void CreatePatterned(Vector3[,] possiblePositions, GameObject[] randomPlatforms)
-    {
-        int patternCounter = 0;
-        int evenOrOdd = Random.Range(0, 2);
-
-        foreach (Vector3 actualPosition in possiblePositions)
-        {
-            if (patternCounter % 2 == evenOrOdd && patternCounter < Random.Range(5,15))
-            {
-                GameObject createdPlatform = (GameObject)GameObject.Instantiate(randomPlatforms[Random.Range(0, 3)], actualPosition, transform.rotation);
-                createdPlatform.transform.parent = this.gameObject.transform;
-            }
-            patternCounter++;
-        }
-    }
-
+		
     //Ensures that all platforms are wiped clean when copied along with a new floor tile copy
     private void CleanSlate()
     {
